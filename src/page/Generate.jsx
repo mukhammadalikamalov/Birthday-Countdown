@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { TextField, Button, MenuItem, Typography, Box, Select, FormControl, InputLabel } from '@mui/material';
 
 const Generate = () => {
@@ -144,34 +143,33 @@ const Generate = () => {
                 >
                     Generate Link
                 </Button>
-            </Box>
-            {link && (
-                <>
-                    <Typography variant="body1" component="p" sx={{ mt: 2, color: '#ffffff' }}>
-                        {link}
-                    </Typography>
-                    <Link to={`birthday/${name}/${day}/${month}`}>
-                        <Button
-                            variant="contained"
-                            color="secondary"
-                            sx={{
-                                mt: 2.5,
-                                backgroundColor: '#ffffff',
-                                color: '#282c34',
-                                '&:hover': {
+                {link && (
+                    <Box sx={{ mt: 2 }}>
+                        <Typography variant="body1" component="p" sx={{ color: '#ffffff' }}>
+                            {link}
+                        </Typography>
+                        <a href={link} target="_blank" rel="noopener noreferrer">
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                sx={{
+                                    mt: 2.5,
                                     backgroundColor: '#ffffff',
                                     color: '#282c34',
-                                },
-                            }}
-                        >
-                            Visit Link
-                        </Button>
-                    </Link>
-                </>
-            )}
+                                    '&:hover': {
+                                        backgroundColor: '#ffffff',
+                                        color: '#282c34',
+                                    },
+                                }}
+                            >
+                                Visit Link
+                            </Button>
+                        </a>
+                    </Box>
+                )}
+            </Box>
         </Box>
     );
 };
 
 export default Generate;
-
